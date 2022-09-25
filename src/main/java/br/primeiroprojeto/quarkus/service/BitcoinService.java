@@ -14,12 +14,12 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import br.primeiroprojeto.quarkus.model.Bitcoin;
 import br.primeiroprojeto.quarkus.service.BitcoinService;
 
-@Path("/bitcoins")
-@RegisterRestClient(configKey = "bitcoin-api")
+@Path("/bitcoins") // chamar api externa
+@RegisterRestClient(configKey = "bitcoin-api") // permitir a injeção de dependência
 public interface BitcoinService {
 
-	@GET
-	//@Produces(MediaType.APPLICATION_JSON)
+	@GET 
+	@Produces(MediaType.APPLICATION_JSON) // o objeto será do tipo JSON
 	public List<Bitcoin> listar();
 
 }
